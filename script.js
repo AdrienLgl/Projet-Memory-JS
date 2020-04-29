@@ -65,6 +65,7 @@ function melangeCarte(){
 
 function afficherCarte(carte, index){
     document.getElementById(index).style.backgroundImage = "url(Images/"+dossier+"/"+carte+")";
+    document.getElementById(index).style.display = ''; 
     document.getElementById(index).setAttribute('data-alt-img', carte);
 }
 
@@ -141,6 +142,7 @@ function bip() {
     counter--;
     finJeu(); //Appelle la fonction de fin du jeu
     if(counter == 0){ 
+        counter = 30;
         finish();
     }else {	
         document.getElementById("bip").innerHTML = counter + " secondes restantes";
@@ -156,7 +158,8 @@ function finJeu(){ //Fin du jeu si tableau des cartes trouvées = 12, si counter
         document.getElementById("bot").src="Images/"+dossier+"/dialog_02.png";
     }else if(tab_end.length == 12){
         clearInterval(intervalId); 
-        var tps = 30 - counter;       
+        var tps = 30 - counter; 
+        counter = 30;      
         document.getElementById("bot").src="Images/"+dossier+"/dialog_02.png"; //Affichage du dialogue du perso
         document.getElementById('affichage_tps').innerHTML = "Ton temps est de : "+tps+" secondes";
     }else if (counter==0 && tab_end.length!=12){
@@ -167,6 +170,7 @@ function finJeu(){ //Fin du jeu si tableau des cartes trouvées = 12, si counter
 }
 
 function nouvellePartie(){ //Lancement d'une nouvelle partie
+
     genererCarte();
     setTimeout(start, 5000);
 }
