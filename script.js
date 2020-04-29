@@ -9,7 +9,7 @@
 //onClick = Retourne la carte quand on clique dessus
 //calculScore = Calcul le score du joueur (score initial = 0)
 //finJeu = Fin du jeu
-//newGame = Nouvelle partie
+//nouvellePartie = Nouvelle partie
 
 //Déclaration des variables (tableaux, score...)
 var tab = ["carte1.jpg", "carte2.jpg", "carte3.jpg", "carte4.jpg", "carte5.jpg", "carte6.jpg"];
@@ -102,7 +102,7 @@ function comparaison(){ //Compare les éléments du tableau généré, si identi
     }
 
     if(tab_OnClick.length>2){ //Retourne les cartes si trop de cartes sont retournées (+ de 2)
-        for (let index = 0; index < tab_OnClick.length; index++) {
+        for (let index = 0; index <= tab_OnClick.length; index++) {
             document.getElementById(id[index]).style.backgroundImage = 'url(Images/'+dossier+'/carte.jpg)';  
         }
         tab_OnClick = [];
@@ -167,7 +167,8 @@ function finJeu(){ //Fin du jeu si tableau des cartes trouvées = 12, si counter
 }
 
 function nouvellePartie(){ //Lancement d'une nouvelle partie
-    location.reload();
+    genererCarte();
+    setTimeout(start, 5000);
 }
 
 
