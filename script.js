@@ -91,6 +91,7 @@ function comparaison(){ //Compare les éléments du tableau généré, si identi
             tab_end.push(tab_OnClick[1]);
             tab_OnClick = []; //Vide le tableau des cartes
             id = []; //Vide le tableau des id
+            finJeu();
             calcul_score(10);  
 
         }else{ //Sinon retourner les cartes
@@ -149,28 +150,35 @@ function bip() {
     }	
 }
 function chrono(){
-  intervalId = setInterval(bip, 1000); //Intervale de 1 sec pour le counter
+    clearInterval(intervalId);
+    counter = 30;
+    intervalId = setInterval(function(){bip(counter)}, 1000); //Intervale de 1 sec pour le counter
 }	
 
 function finJeu(){ //Fin du jeu si tableau des cartes trouvées = 12, si counter = 0
 
     if (tab_end.length==12 && counter==0){
         document.getElementById("bot").src="Images/"+dossier+"/dialog_02.png";
+        tab_end = [];
     }else if(tab_end.length == 12){
         clearInterval(intervalId); 
-        var tps = 30 - counter; 
-        counter = 30;      
+        var tps = 30 - counter;
+        counter = 30; 
         document.getElementById("bot").src="Images/"+dossier+"/dialog_02.png"; //Affichage du dialogue du perso
         document.getElementById('affichage_tps').innerHTML = "Ton temps est de : "+tps+" secondes";
+        tab_end = [];
     }else if (counter==0 && tab_end.length!=12){
         document.getElementById("bot").src="Images/"+dossier+"/dialog_03.png";
-        document.getElementById('affichage_tps').innerHTML = "Dommage réessaye";
+        document.getElementById('affichage_tps').innerHTML = "Temps écoulé, réessaye";
+        tab_end = [];
     }
 
 }
 
 function nouvellePartie(){ //Lancement d'une nouvelle partie
-
+    document.getElementById("bot").src="Images/"+dossier+"/dialog_01.png"; //Affichage du dialogue du perso
+    document.getElementById('affichage_tps').innerHTML = " ";
+    score = 0;
     genererCarte();
     setTimeout(start, 5000);
 }
