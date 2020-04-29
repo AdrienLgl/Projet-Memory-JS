@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Memory Game</title>
+  </head>
+
+  <body class="medieval_body">
+
+    <!--Header-->
+
+    <header>
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-home" aria-selected="true"><b>Memory Game</b></a>
+        <a class="nav-link" id="v-pills-profile-tab" href="index.html" aria-selected="false">Fantasy</a>
+        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="medieval.html" role="tab" aria-controls="v-pills-messages" aria-selected="false">Médiéval</a>
+        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="poudlard.html" role="tab" aria-controls="v-pills-settings" aria-selected="false">Poudlard</a>
+      </div>
+      <h1>Médiéval</h1>
+      <div id="bip"></div>
+    </header>
+    
+    <!--Score et personnage-->
+
+    <div id = "score" class="container">
+      <p id="affichage_score"> </p>
+      <p id="affichage_tps"></p>
+      <img id="bot" class="bot" />
+      <audio id ="audio" controls autoplay></audio>
+    </div>
+
+    <!--Plateau de jeu (cartes)-->
+
+    <div class="container">
+      <div class="ligne">
+        <div id="1" class="carte" onclick="onClick('1')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <div class="ligne">      
+        <div id="2" class="carte" onclick="onClick('2')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <div class="ligne">      
+        <div id="3" class="carte" onclick="onClick('3')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <div class="ligne">      
+        <div id="4" class="carte" onclick="onClick('4')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <div class="ligne">
+        <div id="5" class="carte" onclick="onClick('5')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <div class="ligne">      
+        <div id="6" class="carte" onclick="onClick('6')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <div class="ligne">      
+        <div id="7" class="carte" onclick="onClick('7')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <div class="ligne">      
+        <div id="8" class="carte" onclick="onClick('8')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <div class="ligne">
+        <div id="9" class="carte" onclick="onClick('9')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <div class="ligne">      
+        <div id="10" class="carte" onclick="onClick('10')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <div class="ligne">      
+        <div id="11" class="carte" onclick="onClick('11')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <div class="ligne">      
+        <div id="12" class="carte" onclick="onClick('12')" data-alt-img='' data-alt-img2=''></div>
+      </div>
+      <button onclick="chrono()">Lancer le chrono</button>
+      <button onclick="nouvellePartie()">Nouvelle Partie</button>
+    </div>
+
+
+    <!--Script JS et Fonts-->
+
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
