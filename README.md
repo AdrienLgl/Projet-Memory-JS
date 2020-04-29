@@ -32,6 +32,12 @@ Le but est donc de retrouver les paires de cartes afin de marquer des points et 
 Lorsque les cartes sont retournées, vous devrez cliquer sur 2 cartes différentes afin de retrouver les paires. Si les 2 cartes sont identiques, vous marquez 10 points et le but est d'arriver à 60 points avant la fin du décompte.
 Si au contraire les cartes sont différentes, elles se retournent et vous pouvez choisir d'autres cartes.
 
+Vous serez plongés dans l'ambiance du thème que vous aurez choisi avec une musique de fond que vous pouvez évidemment contrôlée (pause, lecture...).
+
 ## Version
+
+Dans cette version, vous pouvez choisir un thème mais pas encore le nombre de cartes, c'est-à-venir...
+Une fonctionnalité à rajouter pourrait être d'ajouter des cartes supplémentaires et de créer plusieurs decks par thèmes afin de changer les paires.
+On pourrait également envisager des musiques différentes en plus, une sauvegarde des meilleurs temps...
 
 C'est évidemment une première version, alors soit indulgent... ;-)
