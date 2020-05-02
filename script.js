@@ -180,6 +180,8 @@ function nouvellePartie(){ //Lancement d'une nouvelle partie
     document.getElementById('affichage_tps').innerHTML = " ";
     score = 0;
     genererCarte();
+    var tab_end = [];
+    var tab_OnClick = [];
     setTimeout(start, 5000);
 }
 
