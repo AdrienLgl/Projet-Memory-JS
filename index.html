@@ -1,89 +1,142 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Memory Game</title>
-    <link rel="icon" type="image/png" href="Images/logo.png" />
-  </head>
-
-  <body>
-
-    <!--Header-->
-
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <title>Memory Game</title>
+        <link rel="icon" type="image/png" href="Images/logo.png" />
+      </head>
+  <body style="background-image: url(Images/background.jpg);">
     <header>
-      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-home" aria-selected="true"><b>Memory Game</b></a>
-        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="index.html" role="tab" aria-controls="v-pills-profile" aria-selected="false">Fantasy</a>
-        <a class="nav-link" id="v-pills-messages-tab" href="medieval.html" aria-selected="false">Médiéval</a>
-        <a class="nav-link" id="v-pills-settings-tab" href="poudlard.html" aria-selected="false">Poudlard</a>
-      </div>
-      <h1>Fantasy</h1>
-      <div id="bip" style="color:black"></div> <!--Ici, le seul style définit car la couleur du background ne permet pas de voir le blanc-->
-    </header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <img class="logo" src="Images/logo.png"/>
+    <a class="navbar-brand" href="#">Memory Game</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     
-    <!--Score et personnage-->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#column_text">Jeux</a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/AdrienLgl/Projet-Memory-JS" tabindex="-1" aria-disabled="true">Github</a>
+        </li>
+      </ul>
+      <a href="https://github.com/AdrienLgl/Projet-Memory-JS" ><img src="Images/Icones/github.png" width="50"/></a>
+      <a href="https://www.linkedin.com/in/adrien-laigle-441542197/"><button class="btn btn-outline-success my-2 my-sm-0" >Me contacter</button></a>
+    </div>
+  </nav>
+</header>
 
-    <div id = "score" class="container">
-      <p id="affichage_score"> </p>
-      <p id="affichage_tps"></p>
-      <img id="bot" class="bot" />
-      <audio id="audio" controls autoplay></audio>
+<main role="main">
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="Images/Icones/image1.jpg" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+              <h2>Bienvenue sur le Memory Game</h2>
+              <p>C'est à vous de jouer</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="Images/Icones/image2.jpg" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+              <h2>Découvrez tous les univers qui ont été crées rien que pour vous</h2>
+              <p>Voyager dans un monde fantastique, en passant par l'ère du médiéval et en découvrant l'univers de Poudlard</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="Images/Icones/image3.jpg" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+              <h2>Battez vos propres records</h2>
+              <p>Tentez de battre vos meilleurs temps pour devenir le meilleur</p>
+            </div>
+          </div>
+
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        
+      </div>
+
+  <div id="column_text" class="container marketing">
+
+    <div class="row">
+      <div class="col-lg-4">
+        <img  class="bd-placeholder-img rounded-circle" width="150em" height="150em"   src="Images/Icones/fantasy.jpg" />
+       
+        <h2>Fantasy</h2>
+        <p>Plongez dans un monde fantastique où la magie et les légendes règnent en maître.</p>
+        <p><a class="btn btn-secondary" href="fantasy.html" role="button">Jouer &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img  class="bd-placeholder-img rounded-circle" width="150em" height="150em" src="Images/Icones/bouclier.jpg" />
+        <h2>Médiéval</h2>
+        <p>Le médiéval est à votre portée. Profitez-en et tentez de surpasser vos meilleurs scores. </p>
+        <p><a class="btn btn-secondary" href="medieval.html" role="button">Jouer &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img  class="bd-placeholder-img rounded-circle" width="140" height="140"   src="Images/Icones/carte.jpg" />
+        <h2>Poudlard</h2>
+        <p>Le célèbre monde d'Harry Potter vous attend. Rejoignez-le dans cette aventure.</p>
+        <p><a class="btn btn-secondary" href="poudlard.html" role="button">Jouer &raquo;</a></p>
+      </div>
+    </div>
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div >
+        <h2 >Règles du jeu </h2>
+        <p >Le Memory Game est un jeu plutôt simple, vous avez un deck de cartes spécifiques contenant des paires de cartes identiques. Le but est de retourner ces cartes de façon à retrouver les paires.</p>
+      </div>
+     
+    </div>
+    <hr class="featurette-divider">
+    <div class="row featurette">
+      <div >
+        <h2>Mon Score</h2>
+        <p>Vous avez la possibilité d'activer un chrono et lorsque vous retournez une bonne paire de cartes, votre score évolue... L'objectif étant de réaliser le meilleur score possible en fonction du temps que vous avez mis.</p>
+      </div> 
     </div>
 
-    <!--Plateau de jeu (cartes)-->
-
-    <div class="container">
-      <div class="ligne">
-        <div id="1" class="carte" onclick="onClick('1')" data-alt-img='' data-alt-img2=''></div>
+    <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Nouvelle Partie</h2>
+        <p >Une fois que votre partie est terminée, vous pouvez en relancer une nouvelle en cliquant sur "Nouvelle Partie". Votre chrono sera évidemment remis à zéro.</p>
       </div>
-      <div class="ligne">      
-        <div id="2" class="carte" onclick="onClick('2')" data-alt-img='' data-alt-img2=''></div>
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="Images/image.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" ></svg>
       </div>
-      <div class="ligne">      
-        <div id="3" class="carte" onclick="onClick('3')" data-alt-img='' data-alt-img2=''></div>
-      </div>
-      <div class="ligne">      
-        <div id="4" class="carte" onclick="onClick('4')" data-alt-img='' data-alt-img2=''></div>
-      </div>
-      <div class="ligne">
-        <div id="5" class="carte" onclick="onClick('5')" data-alt-img='' data-alt-img2=''></div>
-      </div>
-      <div class="ligne">      
-        <div id="6" class="carte" onclick="onClick('6')" data-alt-img='' data-alt-img2=''></div>
-      </div>
-      <div class="ligne">      
-        <div id="7" class="carte" onclick="onClick('7')" data-alt-img='' data-alt-img2=''></div>
-      </div>
-      <div class="ligne">      
-        <div id="8" class="carte" onclick="onClick('8')" data-alt-img='' data-alt-img2=''></div>
-      </div>
-      <div class="ligne">
-        <div id="9" class="carte" onclick="onClick('9')" data-alt-img='' data-alt-img2=''></div>
-      </div>
-      <div class="ligne">      
-        <div id="10" class="carte" onclick="onClick('10')" data-alt-img='' data-alt-img2=''></div>
-      </div>
-      <div class="ligne">      
-        <div id="11" class="carte" onclick="onClick('11')" data-alt-img='' data-alt-img2=''></div>
-      </div>
-      <div class="ligne">      
-        <div id="12" class="carte" onclick="onClick('12')" data-alt-img='' data-alt-img2=''></div>
-      </div>
-      <button onclick="chrono()">Lancer le chrono</button>
-      <button onclick="nouvellePartie()">Nouvelle Partie</button>
     </div>
 
+    <hr class="featurette-divider">
+  </div>
 
-    <!--Script JS et Fonts-->
-
-    <script src="script.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-right"><a href="#">Remonter</a></p>
+    <p>&copy; 2020 - AdrienLgl &middot; <a href="https://www.linkedin.com/in/adrien-laigle-441542197/">Me contacter</a> &middot; <a href="https://github.com/AdrienLgl/Projet-Memory-JS">En savoir plus</a></p>
+  </footer>
+</main>
+<script src="script.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </html>

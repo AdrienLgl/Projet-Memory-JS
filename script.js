@@ -22,8 +22,9 @@ var tab_OnClick = [];
 var id = [];
 let dossier;
 page_html();
-document.getElementById("bot").src="Images/"+dossier+"/dialog_01.png"; //Affichage du dialogue du perso
-document.getElementById("audio").src="Images/"+dossier+"/musique.mp3"; //Définition du chemin vers la musique
+$('#titre').html(dossier);
+$("#bot").attr('src', "Images/"+dossier+"/dialog_01.png"); //Affichage du dialogue du perso
+$('#audio').attr('src', "Images/"+dossier+"/musique.mp3"); //Définition du chemin vers la musique
 genererCarte();
 
 
@@ -32,7 +33,7 @@ function page_html(){ //Définition du nom de dossier pour les cartes du deck (e
     var page = window.location.href;
     var position = page.indexOf('poudlard');
     if(position == -1){
-        var position2 = page.indexOf('index');
+        var position2 = page.indexOf('fantasy');
         if(position2 == -1){
             dossier = 'Medieval';
         }else{
@@ -64,29 +65,39 @@ function melangeCarte(){
 }
 
 function afficherCarte(carte, index){
-    document.getElementById(index).style.backgroundImage = "url(Images/"+dossier+"/"+carte+")";
+    $('#'+index).css("backgroundImage","url(Images/"+dossier+"/"+carte+")");
+//    document.getElementById(index).style.backgroundImage = "url(Images/"+dossier+"/"+carte+")";
     document.getElementById(index).style.display = ''; 
     document.getElementById(index).setAttribute('data-alt-img', carte);
 }
 
 function start(){ //Retourne toutes les cartes
     for (let index = 1; index <= 12; index++) {
-        document.getElementById(index).style.backgroundImage = 'url(Images/'+dossier+'/carte.jpg)';   
+        $('#'+index).css('backgroundImage', 'url(Images/'+dossier+'/carte.jpg)');   
     }
 }
 
 function insert_tableau(verif, carte_nb){ //Insère dans un tableau les cartes qui sont retournées
     tab_OnClick.push(verif); //Tableau des cartes retournées
     id.push(carte_nb); //Tableau des id des cartes retournées
-    comparaison();
+    setTimeout(function() {comparaison()},2000);
 }
 
 function comparaison(){ //Compare les éléments du tableau généré, si identique supprimer les cartes du plateau
 
+
+    if(tab_OnClick.length>2){ //Retourne les cartes si trop de cartes sont retournées (+ de 2)
+        for (let index = 0; index <= tab_OnClick.length; index++) {
+            $('#'+id[index]).css('backgroundImage', 'url(Images/'+dossier+'/carte.jpg)');
+        }
+        tab_OnClick = [];
+        id = [];  
+    }
+
     if(tab_OnClick.length==2){
         if(tab_OnClick[0] == tab_OnClick[1]){
-            document.getElementById(id[0]).style.display = 'none'; 
-            document.getElementById(id[1]).style.display = 'none'; 
+            $('#'+id[0]).css('display', 'none');
+            $('#'+id[1]).css('display', 'none');
             tab_end.push(tab_OnClick[0]);
             tab_end.push(tab_OnClick[1]);
             tab_OnClick = []; //Vide le tableau des cartes
@@ -96,38 +107,33 @@ function comparaison(){ //Compare les éléments du tableau généré, si identi
 
         }else{ //Sinon retourner les cartes
             for (let index = 0; index < tab_OnClick.length; index++) {
-                document.getElementById(id[index]).style.backgroundImage = 'url(Images/'+dossier+'/carte.jpg)';  
+                $('#'+id[index]).css('backgroundImage', 'url(Images/'+dossier+'/carte.jpg)');
+                calcul_score(-5);  
             }
             tab_OnClick = [];
             id = [];  
         }   
     }
 
-    if(tab_OnClick.length>2){ //Retourne les cartes si trop de cartes sont retournées (+ de 2)
-        for (let index = 0; index <= tab_OnClick.length; index++) {
-            document.getElementById(id[index]).style.backgroundImage = 'url(Images/'+dossier+'/carte.jpg)';  
-        }
-        tab_OnClick = [];
-        id = [];  
-    }
+    
 }
 
 function onClick(carte_nb) { //Retourne la carte quand on clique dessus
     var verif = document.getElementById(carte_nb).style.backgroundImage;
     var carte = document.getElementById(carte_nb).getAttribute('data-alt-img');
     if(verif != 'url("Images/'+dossier+'/carte.jpg")'){
-        document.getElementById(carte_nb).style.backgroundImage = 'url(Images/'+dossier+'/carte.jpg)';
+        $('#'+carte_nb).css('backgroundImage', 'url(Images/'+dossier+'/carte.jpg)');
     }else{
         var carte = document.getElementById(carte_nb).getAttribute('data-alt-img');
-        document.getElementById(carte_nb).style.backgroundImage = 'url(Images/'+dossier+'/'+carte+')';
-        setTimeout(function() {insert_tableau(carte, carte_nb)},2000); 
+        $('#'+carte_nb).css('backgroundImage', 'url(Images/'+dossier+'/'+carte+')');
+        insert_tableau(carte, carte_nb); 
         //Execute la fonction d'insertion des cartes retournées dans le tableau
     }
 }
 
 function calcul_score(pts){ //Calcul le score du joueur (score initial de 0)
     score = score + pts;
-    document.getElementById('affichage_score').innerHTML = "Ton score : "+score;
+    $('#affichage_score').html("Ton score : "+score);
     return score;
 }
 
@@ -137,7 +143,7 @@ var counter = 30;
 var intervalId = null;
 function finish() {
   clearInterval(intervalId);
-  document.getElementById("bip").innerHTML = "TERMINE!";
+  $('#bip').html("TERMINE!");
 }
 function bip() {
     counter--;
@@ -146,7 +152,7 @@ function bip() {
         counter = 30;
         finish();
     }else {	
-        document.getElementById("bip").innerHTML = counter + " secondes restantes";
+        $('#bip').html(counter + " secondes restantes");
     }	
 }
 function chrono(){
@@ -158,26 +164,26 @@ function chrono(){
 function finJeu(){ //Fin du jeu si tableau des cartes trouvées = 12, si counter = 0
 
     if (tab_end.length==12 && counter==0){
-        document.getElementById("bot").src="Images/"+dossier+"/dialog_02.png";
+        $('#bot').attr('src', "Images/"+dossier+"/dialog_02.png");
         tab_end = [];
     }else if(tab_end.length == 12){
         clearInterval(intervalId); 
         var tps = 30 - counter;
         counter = 30; 
-        document.getElementById("bot").src="Images/"+dossier+"/dialog_02.png"; //Affichage du dialogue du perso
-        document.getElementById('affichage_tps').innerHTML = "Ton temps est de : "+tps+" secondes";
+        $('#bot').attr('src', "Images/"+dossier+"/dialog_02.png"); //Affichage du dialogue du perso
+        $('#affichage_tps').html("Ton temps est de : "+tps+" secondes");
         tab_end = [];
     }else if (counter==0 && tab_end.length!=12){
-        document.getElementById("bot").src="Images/"+dossier+"/dialog_03.png";
-        document.getElementById('affichage_tps').innerHTML = "Temps écoulé, réessaye";
+        $('#bot').attr('src', "Images/"+dossier+"/dialog_03.png");
+        $('#affichage_tps').html("Temps écoulé, réessaye");
         tab_end = [];
     }
 
 }
 
 function nouvellePartie(){ //Lancement d'une nouvelle partie
-    document.getElementById("bot").src="Images/"+dossier+"/dialog_01.png"; //Affichage du dialogue du perso
-    document.getElementById('affichage_tps').innerHTML = " ";
+    $('#bot').attr('src', "Images/"+dossier+"/dialog_01.png"); //Affichage du dialogue du perso
+    $('#affichage_tps').html(" ");
     score = 0;
     genererCarte();
     var tab_end = [];
@@ -193,7 +199,7 @@ var first=true;
     function onmousedown(){
        if(!first) return;
        first=false;
-       document.getElementById("audio").src="Images/"+dossier+"/musique.mp3";
+       $('#audio').attr('src', "Images/"+dossier+"/musique.mp3");
        audio.play();
     }
 

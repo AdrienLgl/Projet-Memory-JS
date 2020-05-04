@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="Images/logo.png" />
   </head>
 
-  <body class="poudlard_body">
+  <body>
 
     <!--Header-->
 
@@ -31,6 +31,7 @@
               
             </li>
             <li class="nav-item">
+              
               <a class="nav-link" href="https://github.com/AdrienLgl/Projet-Memory-JS" tabindex="-1" aria-disabled="true">Github</a>
             </li>
           </ul>
@@ -40,21 +41,21 @@
           </form>
         </div>
       </nav>
-      
+     
     </header>
 
     <div class="main">
 
     <h1 id="titre"></h1>
-      <div id="bip"></div>
+    <div id="bip" style="color:black"></div> <!--Ici, le seul style définit car la couleur du background ne permet pas de voir le blanc-->
     
     <!--Score et personnage-->
 
     <div id = "score" class="container">
       <p id="affichage_score"> </p>
       <p id="affichage_tps"></p>
-      <img id="bot" class="bot" />
-      <audio id ="audio" controls autoplay></audio>
+      <img id="bot" class="bot"/>
+      <audio id="audio" controls autoplay></audio>
     </div>
 
     <!--Plateau de jeu (cartes)-->
@@ -101,10 +102,8 @@
     </div>
 
   </div>
-
     <!--Script JS et Fonts-->
     <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
-
     <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">

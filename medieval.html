@@ -14,15 +14,38 @@
     <!--Header-->
 
     <header>
-      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-home" aria-selected="true"><b>Memory Game</b></a>
-        <a class="nav-link" id="v-pills-profile-tab" href="index.html" aria-selected="false">Fantasy</a>
-        <a class="nav-link" id="v-pills-messages-tab" href="medieval.html" aria-selected="false">Médiéval</a>
-        <a class="nav-link" id="v-pills-settings-tab" href="poudlard.html" aria-selected="false">Poudlard</a>
-      </div>
-      <h1>Médiéval</h1>
-      <div id="bip"></div>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <img class="logo" src="Images/logo.png"/>
+        <a class="navbar-brand" href="#">Memory Game</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Jeux</a>
+              
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/AdrienLgl/Projet-Memory-JS" tabindex="-1" aria-disabled="true">Github</a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+          </form>
+        </div>
+      </nav>
+      
     </header>
+
+<div class="main">
+    <h1 id="titre"></h1>
+    <div id="bip"></div>
     
     <!--Score et personnage-->
 
@@ -76,8 +99,9 @@
       <button onclick="nouvellePartie()">Nouvelle Partie</button>
     </div>
 
-
+  </div>
     <!--Script JS et Fonts-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
 
     <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
