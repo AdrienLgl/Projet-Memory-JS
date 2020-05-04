@@ -191,7 +191,7 @@ function nouvellePartie(){ //Lancement d'une nouvelle partie
     setTimeout(start, 5000);
 }
 
-
+/*
 //Démmarage de la musique au premier clic de l'utilisateur (autoplay non compatible avec tous les navigateurs)
 var first=true;
       window.addEventListener('mousedown',onmousedown);
@@ -203,8 +203,9 @@ var first=true;
        audio.play();
     }
 
+*/
 
-
+//Désactivé car l'autoplay marche correctement lorsque le site est en ligne
 
 
 
