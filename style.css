@@ -46,6 +46,8 @@ button{
 	-webkit-transform: scale(1.3);
 	transform: scale(1.3);
 }
+
+
 .carte{
 
    /* background-image: url(Images/carte.jpg) ;*/
@@ -63,6 +65,17 @@ button{
     width: 10.5em;
     height: 12em;
     display: inline-block;
+}
+
+
+@media screen and (max-width: 400px) {
+
+    .ligne{
+
+        width: 5em;
+        height: 6em;
+    }
+
 }
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
 
