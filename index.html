@@ -127,16 +127,34 @@
     <hr class="featurette-divider">
   </div>
 
+  <div id="pop_up_deck" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content" >
+      <span id="echap" class="close">&times;</span>
+      <div class="content">
+      <img id='icone' width="50"/>
+      <p id='pop_up'></p>
+      <button onclick="choix_deck('Deck1')">Deck N°1</button>
+      <button onclick="choix_deck('Deck2')">Deck N°2</button>
+      <button onclick="choix_deck('Deck3')">Deck N°3</button>
+      </div>
+    </div>
+  
+  </div>
   <!-- FOOTER -->
   <footer class="container">
     <p class="float-right"><a href="#">Remonter</a></p>
     <p>&copy; 2020 - AdrienLgl &middot; <a href="https://www.linkedin.com/in/adrien-laigle-441542197/">Me contacter</a> &middot; <a href="https://github.com/AdrienLgl/Projet-Memory-JS">En savoir plus</a></p>
   </footer>
 </main>
+
+<script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
 <script src="script.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
 </html>

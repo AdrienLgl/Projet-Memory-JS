@@ -12,19 +12,22 @@
 //nouvellePartie = Nouvelle partie
 
 function chemin(chemin){ //Définit le chemin en fonction du jeu sélectionné dans l'index
-    let url;
+    
+    pop_up2();
 
     if(chemin == 'Poudlard'){
-     url = 'game.html?ID=3';
+     url = 'game.html?ID=Poudlard';
     }else if(chemin == 'Fantasy'){
-        url = 'game.html?ID=1';
+        url = 'game.html?ID=Fantasy';
     }else{
-     url = 'game.html?ID=2';
+     url = 'game.html?ID=Medieval';
     }
-    document.location.href=url;
+    
+    
 }
-
+let url;
 let dossier;
+let deck;
 page_html();
 createCarte();
 //Déclaration des variables (tableaux, score...)
@@ -42,13 +45,20 @@ $('#audio').attr('src', "Images/"+dossier+"/musique.mp3"); //Définition du chem
 $('#body').css("backgroundImage","url(Images/"+dossier+"/background.jpg)");
 genererCarte();
 
+function choix_deck(choix){
 
+    deck = choix;
+    document.getElementById('pop_up_deck').style.display = "none";
+    url = url + "?"+deck;
+    document.location.href=url;
+
+}
 
 function page_html(){ //Définition du nom de dossier pour les cartes du deck (en fonction de l'url de la page et de mots clés)
     var page = window.location.href;
-    var position = page.indexOf('3');
+    var position = page.indexOf('Poudlard');
     if(position == -1){
-        var position2 = page.indexOf('1');
+        var position2 = page.indexOf('Fantasy');
         if(position2 == -1){
             dossier = 'Medieval';
         }else{
@@ -60,10 +70,21 @@ function page_html(){ //Définition du nom de dossier pour les cartes du deck (e
         dossier = 'Poudlard';
     }
 
+    if (page.indexOf('Deck1') == -1) {
+        if(page.indexOf('Deck2') == -1){
+            deck = 'Deck3';
+        }else{
+            deck = 'Deck2';
+        }   
+    }else{
+        deck = 'Deck1';
+    }
+
 }
 
 function createCarte(){
     
+
     for (let index = 1; index <= 12; index++) {
         $('#plateau').append('<div class="ligne"><div id='+index+' class="carte" onclick="onClick('+index+')" data-alt-img="" data-alt-img2=""></div></div>');  
     }
@@ -88,10 +109,10 @@ function melangeCarte(){
 }
 
 function afficherCarte(carte, index){
-    $('#'+index).css("backgroundImage","url(Images/"+dossier+"/"+carte+")");
+    $('#'+index).css("backgroundImage","url(Images/"+dossier+"/"+deck+"/"+carte+")");
 //    document.getElementById(index).style.backgroundImage = "url(Images/"+dossier+"/"+carte+")";
-    document.getElementById(index).style.display = ''; 
-    document.getElementById(index).setAttribute('data-alt-img', carte);
+    $('#'+index).css("display", " ");
+    $('#'+index).attr('data-alt-img', carte)
 }
 
 function start(){ //Retourne toutes les cartes
@@ -149,7 +170,7 @@ function onClick(carte_nb) { //Retourne la carte quand on clique dessus
         $('#'+carte_nb).css('backgroundImage', 'url(Images/'+dossier+'/carte.jpg)');
     }else{
         var carte = document.getElementById(carte_nb).getAttribute('data-alt-img');
-        $('#'+carte_nb).css('backgroundImage', 'url(Images/'+dossier+'/'+carte+')');
+        $('#'+carte_nb).css('backgroundImage', 'url(Images/'+dossier+'/'+deck+'/'+carte+')');
         insert_tableau(carte, carte_nb); 
         //Execute la fonction d'insertion des cartes retournées dans le tableau
     }
@@ -213,10 +234,10 @@ function nouvellePartie(){ //Lancement d'une nouvelle partie
     $('#bot').attr('src', "Images/"+dossier+"/dialog_01.png"); //Affichage du dialogue du perso
     $('#affichage_tps').html(" ");
     score = 0;
-    pop_up();
     genererCarte();
     var tab_end = [];
     var tab_OnClick = [];
+    modal.style.display = "none";
     setTimeout(start, 5000);
 }
 
@@ -233,6 +254,28 @@ function pop_up(tps){
     
     modal.style.display = "block";
 }
+
+
+function pop_up2(){
+    $('#icone').attr('src', 'Images/logo.png');
+    $('#pop_up').html('Quel deck choisis-tu ?');
+    
+    
+    document.getElementById("pop_up_deck").style.display = "block";
+    
+    document.getElementById('echap').onclick = function(){
+        document.getElementById('pop_up_deck').style.display = "none";
+        
+    }
+
+}
+
+
+
+
+
+
+
 
 /*
 //Démmarage de la musique au premier clic de l'utilisateur (autoplay non compatible avec tous les navigateurs)
@@ -253,14 +296,14 @@ var first=true;
 //Pop up Score
 
 var modal = document.getElementById("myModal");
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close");
 var img = document.getElementById('return');
 span.onclick = function() {
-  modal.style.display = "none";
+    modal.style.display = "none";
 }
 img.onclick = function(){
+    
     nouvellePartie();
-    modal.style.display = "none";
 }
 window.onclick = function(event) {
   if (event.target == modal) {
@@ -268,10 +311,10 @@ window.onclick = function(event) {
   }
 }
 
-    
 
 
-       
+
+  
         
 
     

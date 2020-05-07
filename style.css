@@ -258,6 +258,23 @@ h2{
     font-size: 28px;
     font-weight: bold;
   }
+
+  .fermer{
+
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+
+  }
+
+  .fermer:hover,
+  .fermer:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
   
   .close:hover,
   .close:focus {
