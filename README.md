@@ -49,4 +49,4 @@ Création de 3 nouveaux decks pour chaque thème et possibilité de choisir celu
 Création d'une belle page d'accueil pour le jeu.
 
 **Bugs recensés et en cours de correction :**
-* - Non affichage des cartes lors du premier lancement d'une nouvelle partie sur la pop-up*
+* Non affichage des cartes lors du premier lancement d'une nouvelle partie sur la pop-up
