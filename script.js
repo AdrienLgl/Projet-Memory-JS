@@ -11,6 +11,22 @@
 //finJeu = Fin du jeu
 //nouvellePartie = Nouvelle partie
 
+function chemin(chemin){ //Définit le chemin en fonction du jeu sélectionné dans l'index
+    let url;
+
+    if(chemin == 'Poudlard'){
+     url = 'game.html?ID=3';
+    }else if(chemin == 'Fantasy'){
+        url = 'game.html?ID=1';
+    }else{
+     url = 'game.html?ID=2';
+    }
+    document.location.href=url;
+}
+
+let dossier;
+page_html();
+createCarte();
 //Déclaration des variables (tableaux, score...)
 var tab = ["carte1.jpg", "carte2.jpg", "carte3.jpg", "carte4.jpg", "carte5.jpg", "carte6.jpg"];
 var tab_carte = [];
@@ -20,24 +36,24 @@ var tab_end = [];
 setTimeout(start, 5000);
 var tab_OnClick = [];
 var id = [];
-let dossier;
-page_html();
 $('#titre').html(dossier);
 $("#bot").attr('src', "Images/"+dossier+"/dialog_01.png"); //Affichage du dialogue du perso
 $('#audio').attr('src', "Images/"+dossier+"/musique.mp3"); //Définition du chemin vers la musique
+$('#body').css("backgroundImage","url(Images/"+dossier+"/background.jpg)");
 genererCarte();
 
 
 
 function page_html(){ //Définition du nom de dossier pour les cartes du deck (en fonction de l'url de la page et de mots clés)
     var page = window.location.href;
-    var position = page.indexOf('poudlard');
+    var position = page.indexOf('3');
     if(position == -1){
-        var position2 = page.indexOf('fantasy');
+        var position2 = page.indexOf('1');
         if(position2 == -1){
             dossier = 'Medieval';
         }else{
             dossier = 'Fantasy';
+            $('#bip').css("color","black");
         }
     }else{
 
@@ -46,6 +62,13 @@ function page_html(){ //Définition du nom de dossier pour les cartes du deck (e
 
 }
 
+function createCarte(){
+    
+    for (let index = 1; index <= 12; index++) {
+        $('#plateau').append('<div class="ligne"><div id='+index+' class="carte" onclick="onClick('+index+')" data-alt-img="" data-alt-img2=""></div></div>');  
+    }
+
+}
 
 function genererCarte(){
     for (let index = 0; index < tab.length; index++) {
@@ -102,8 +125,8 @@ function comparaison(){ //Compare les éléments du tableau généré, si identi
             tab_end.push(tab_OnClick[1]);
             tab_OnClick = []; //Vide le tableau des cartes
             id = []; //Vide le tableau des id
-            finJeu();
             calcul_score(10);  
+            finJeu();
 
         }else{ //Sinon retourner les cartes
             for (let index = 0; index < tab_OnClick.length; index++) {
@@ -119,6 +142,7 @@ function comparaison(){ //Compare les éléments du tableau généré, si identi
 }
 
 function onClick(carte_nb) { //Retourne la carte quand on clique dessus
+    
     var verif = document.getElementById(carte_nb).style.backgroundImage;
     var carte = document.getElementById(carte_nb).getAttribute('data-alt-img');
     if(verif != 'url("Images/'+dossier+'/carte.jpg")'){
@@ -164,7 +188,9 @@ function chrono(){
 function finJeu(){ //Fin du jeu si tableau des cartes trouvées = 12, si counter = 0
 
     if (tab_end.length==12 && counter==0){
+        var tps = 0;
         $('#bot').attr('src', "Images/"+dossier+"/dialog_02.png");
+        pop_up(tps);
         tab_end = [];
     }else if(tab_end.length == 12){
         clearInterval(intervalId); 
@@ -172,8 +198,10 @@ function finJeu(){ //Fin du jeu si tableau des cartes trouvées = 12, si counter
         counter = 30; 
         $('#bot').attr('src', "Images/"+dossier+"/dialog_02.png"); //Affichage du dialogue du perso
         $('#affichage_tps').html("Ton temps est de : "+tps+" secondes");
+        pop_up(tps);
         tab_end = [];
     }else if (counter==0 && tab_end.length!=12){
+        pop_up(tps);
         $('#bot').attr('src', "Images/"+dossier+"/dialog_03.png");
         $('#affichage_tps').html("Temps écoulé, réessaye");
         tab_end = [];
@@ -185,10 +213,25 @@ function nouvellePartie(){ //Lancement d'une nouvelle partie
     $('#bot').attr('src', "Images/"+dossier+"/dialog_01.png"); //Affichage du dialogue du perso
     $('#affichage_tps').html(" ");
     score = 0;
+    pop_up();
     genererCarte();
     var tab_end = [];
     var tab_OnClick = [];
     setTimeout(start, 5000);
+}
+
+function pop_up(tps){
+    $('#icone').attr('src', 'Images/Icones/icone_'+dossier+'.png');
+    $('#pop_up_score').html('Ton score est de : '+score + 'pts');
+    if(tps>=0){
+        $('#pop_up').html('Bravo ! Tu as réussi à finir le Memory Game '+dossier);
+        $('#pop_up_tps').html('Ton temps est de '+ tps+' sec');
+    }else{
+        $('#pop_up').html('Dommage... Le temps est écoulé, reessaye.');
+        $('#pop_up_tps').html('TERMINE !!');
+    }
+    
+    modal.style.display = "block";
 }
 
 /*
@@ -207,11 +250,23 @@ var first=true;
 
 //Désactivé car l'autoplay marche correctement lorsque le site est en ligne
 
+//Pop up Score
 
-
-
-
-    
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+var img = document.getElementById('return');
+span.onclick = function() {
+  modal.style.display = "none";
+}
+img.onclick = function(){
+    nouvellePartie();
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
     
 
