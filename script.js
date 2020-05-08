@@ -111,7 +111,7 @@ function melangeCarte(){
 function afficherCarte(carte, index){
     $('#'+index).css("backgroundImage","url(Images/"+dossier+"/"+deck+"/"+carte+")");
 //    document.getElementById(index).style.backgroundImage = "url(Images/"+dossier+"/"+carte+")";
-    $('#'+index).css("display", " ");
+    $('#'+index).css("display", "");
     $('#'+index).attr('data-alt-img', carte)
 }
 
@@ -237,7 +237,6 @@ function nouvellePartie(){ //Lancement d'une nouvelle partie
     genererCarte();
     var tab_end = [];
     var tab_OnClick = [];
-    modal.style.display = "none";
     setTimeout(start, 5000);
 }
 
@@ -297,12 +296,12 @@ var first=true;
 
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close");
-var img = document.getElementById('return');
+var img = document.getElementById("retour");
 span.onclick = function() {
     modal.style.display = "none";
 }
 img.onclick = function(){
-    
+    modal.style.display = "none";
     nouvellePartie();
 }
 window.onclick = function(event) {
