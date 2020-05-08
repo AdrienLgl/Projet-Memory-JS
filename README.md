@@ -34,10 +34,19 @@ Si au contraire les cartes sont différentes, elles se retournent et vous pouvez
 
 Vous serez plongés dans l'ambiance du thème que vous aurez choisi avec une musique de fond que vous pouvez évidemment contrôlée (pause, lecture...).
 
-## Version
+## Version 1.0
 
 Dans cette version, vous pouvez choisir un thème mais pas encore le nombre de cartes, c'est-à-venir...
 Une fonctionnalité à rajouter pourrait être d'ajouter des cartes supplémentaires et de créer plusieurs decks par thèmes afin de changer les paires.
 On pourrait également envisager des musiques différentes en plus, une sauvegarde des meilleurs temps...
 
 C'est évidemment une première version, alors soit indulgent... ;-)
+
+## Version 2.0
+
+Mise à jour du Mémory Game avec un nouveau système d'affichage de score sous forme de pop-up. Possibilité de relancer une nouvelle partie à partir de cette pop-up.
+Création de 3 nouveaux decks pour chaque thème et possibilité de choisir celui que l'on veut utiliser.
+Création d'une belle page d'accueil pour le jeu.
+
+**Bugs recensés et corrigés :**
+* Non affichage des cartes lors du premier lancement d'une nouvelle partie sur la pop-up
