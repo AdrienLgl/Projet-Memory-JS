@@ -48,5 +48,5 @@ Mise à jour du Mémory Game avec un nouveau système d'affichage de score sous 
 Création de 3 nouveaux decks pour chaque thème et possibilité de choisir celui que l'on veut utiliser.
 Création d'une belle page d'accueil pour le jeu.
 
-**Bugs recensés et en cours de correction :**
+**Bugs recensés et corrigés :**
 * Non affichage des cartes lors du premier lancement d'une nouvelle partie sur la pop-up
